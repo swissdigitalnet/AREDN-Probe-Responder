@@ -3,7 +3,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=aredn-probe-responder
-PKG_VERSION:=1.0.0
+PKG_VERSION:=1.0.1
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -40,6 +40,14 @@ define Package/aredn-probe-responder/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/probe-responder $(1)/usr/bin/
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/probe-responder $(1)/etc/init.d/
+endef
+
+define Package/aredn-probe-responder/postinst
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] || {
+	/etc/init.d/probe-responder enable
+	/etc/init.d/probe-responder start
+}
 endef
 
 $(eval $(call BuildPackage,aredn-probe-responder))
