@@ -1,0 +1,44 @@
+# Claude Code configuration and documentation
+.claude/
+CLAUDE.md
+claude.md
+GEMINI.md
+gemini.md
+
+# Microsoft Office documents
+*.docx
+
+# Archive files
+*.zip
+
+# Todo files
+todo.*
+
+# Build artifacts and temporary files
+*.o
+*.so
+*.a
+*~
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp.*
+
+# IPK build artifacts and extracted contents
+ipk-files/
+ipk-contents/
+*.ipk
+
+# OpenWrt SDK (large file)
+openwrt-sdk.tar.xz
+*.tar.xz
